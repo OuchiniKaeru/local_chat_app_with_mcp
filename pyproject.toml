@@ -1,0 +1,22 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ag2[gemini]>=0.9.6",
+    "alembic>=1.16.4",
+    "autogen>=0.9.6",
+    "autogen-core",
+    "autogen-ext[mcp,openai,gemini]",
+    "autogen-agentchat",
+    "ddgs>=9.3.1",
+    "fastapi>=0.116.1",
+    "google-generativeai>=0.8.5",
+    "jinja2>=3.1.6",
+    "python-multipart>=0.0.20",
+    "sqlalchemy>=2.0.41",
+    "uvicorn>=0.35.0",
+    "python-dotenv",
+]

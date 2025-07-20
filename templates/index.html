@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Agent App</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar for Chat History -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Chat History</h2>
+                <div class="sidebar-actions">
+                    <button id="new-chat-btn">+ New Chat</button>
+                    <button id="settings-btn" class="icon-btn">⚙️</button>
+                    <button id="mcp-btn" class="icon-btn">🌐</button>
+                </div>
+            </div>
+            <ul id="chat-history-list" class="chat-history-list">
+                <!-- Chat history items will be populated here by script.js -->
+            </ul>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <div id="chat-window" class="chat-window" data-chat-id="">
+                <!-- Messages will be appended here -->
+            </div>
+
+            
+
+            <!-- Message Input Form -->
+            <form id="chat-form" class="chat-form">
+                <div class="input-group">
+                    <textarea id="message-input" placeholder="Type your message here..." rows="1"></textarea>
+                    <input type="file" id="file-input" style="display: none;">
+                    <button type="button" id="file-upload-btn" class="icon-btn">📎</button>
+                    <button type="submit" id="send-btn" class="send-btn">Send</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Settings</h2>
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="user-id">User ID:</label>
+                    <input type="text" id="user-id" name="user-id">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="theme">Theme:</label>
+                    <select id="theme" name="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="system-prompt">System Prompt:</label>
+                    <textarea id="system-prompt" name="system-prompt" rows="5"></textarea>
+                </div>
+                <button type="submit">Save Settings</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MCP Modal -->
+    <div id="mcp-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>MCP Servers</h2>
+            <div id="mcp-list">
+                <!-- MCP servers will be listed here -->
+            </div>
+            <button id="edit-settings-json-btn">Edit settings.json</button>
+        </div>
+    </div>
+
+    <!-- Edit Raw Settings JSON Modal -->
+    <div id="edit-raw-settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit settings.json (Raw)</h2>
+            <textarea id="raw-settings-json" rows="20" style="width: 100%; font-family: monospace;"></textarea>
+            <button id="save-raw-settings-btn">Save Raw Settings</button>
+        </div>
+    </div>
+</body>
+</html>
